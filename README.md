@@ -34,7 +34,11 @@ This corpus is available under the Creative Commons Attribution-NonCommercial-Sh
 8. The merged transcripts are then cleaned of unwanted characters (e.g. semicolon, commas etc.)
 9. The DE-transcriptions of files of the package 'd1163' are removed because they have not been translated
 
-The final transcripts are splitted into train (75%), dev (15%) and test (10%) files and stored in ./Final_Training_CSV_for_Deepspeech/'
+The final transcripts are splitted into train (75%), dev (15%) and test (10%) files and stored in:
+
+```
+./Final_Training_CSV_for_Deepspeech/'
+```
 
 
 
