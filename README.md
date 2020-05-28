@@ -23,19 +23,14 @@ This corpus is available under the Creative Commons Attribution-NonCommercial-Sh
 ## Pre-processing Steps
 
 - If you have acquired the audio files as mentioned above, create a folder called 'audio' and place the files in this folder. 
+```
+python3 Archimob_DeepSpeech_Importer.py
+```
 
-1. Audio files are merged from subfolders into one folder in './Pre_Processing_Files/audio_merged'.
-2. Wav-Files are pre-processed according to above format-specifications and stored in './Pre_Processing_Files/audio_processed_final'
-3. The CH and DE words are extracted from the XML-files and joined to strings with the corresponding media-pointer ID (which matches the audio_filename), and stored in csv per XML-file
-4. Duplicates and zero values in transcriptions  are removed. (List of removed duplicates are available in './Pre_Processing_Files/CSV_Merged/')
-5. All csv per language are merged
-6. A csv that contains [wav_filename], [wav_filesize] of all wav files in './Pre_Processing_Files/audio_processed_final/' is created.
-7. The transcriptions, filenames and filesizes are merged and files below 10'000 Bytes and above 318'400 Bytes are dropped. (See comment below)
-8. The merged transcripts are then cleaned of unwanted characters (e.g. semicolon, commas etc.)
-9. The DE-transcriptions of files of the package 'd1163' are removed because they have not been translated
+- The transcriptions, filenames and filesizes are merged and files below 10'000 Bytes and above 318'400 Bytes are dropped.
+- The merged transcripts are then cleaned of unwanted characters (e.g. semicolon, commas etc.)
 
 - The final transcripts are splitted into train (75%), dev (15%) and test (10%) files and stored in:
-
 ```
 Final_Training_CSV_for_Deepspeech
 ```
