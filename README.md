@@ -18,6 +18,8 @@
 
 This corpus is available under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
 
+**Size: ~70 hours**
+
 ## Pre-processing Steps
 
 
