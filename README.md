@@ -37,7 +37,7 @@ This corpus is available under the Creative Commons Attribution-NonCommercial-Sh
 The final transcripts are splitted into train (75%), dev (15%) and test (10%) files and stored in:
 
 ```
-./Final_Training_CSV_for_Deepspeech/'
+Final_Training_CSV_for_Deepspeech
 ```
 
 
