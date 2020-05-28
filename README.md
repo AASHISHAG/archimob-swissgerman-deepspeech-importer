@@ -12,6 +12,13 @@ The importer pre-processes the audio-and text-data so that it can be used with t
 
 ## How to access
 <p> You need to contact <a href='https://github.com/AASHISHAG/deepspeech-swiss-german'>Dr. Samardžić</a> for the access. More details can be referred at <a href='https://www.spur.uzh.ch/en/departments/research/textgroup/ArchiMob.html'>The ArchiMob Corpus</a>
+  
+## ArchiMob Corpus
+<p> The ArchiMob corpus represents German linguistic varieties spoken within the territory of Switzerland. This corpus is the first electronic resource containing long samples of transcribed text in Swiss German, intended for studying the spatial distribution of morphosyntactic features and for natural language processing. </p>
+
+This corpus is available under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
+
+## Pre-processing Steps
 
 
 
