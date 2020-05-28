@@ -10,5 +10,8 @@ The importer pre-processes the audio-and text-data so that it can be used with t
 - [ArchiMob Corpus](#archimob_corpus)
 - [Pre-processing Steps](#pre_processing_steps)
 
+## How to access
+<p> You need to contact <a href='https://github.com/AASHISHAG/deepspeech-swiss-german'>Dr. Samardžić</a> for the access. More details can be referred at <a href='https://www.spur.uzh.ch/en/departments/research/textgroup/ArchiMob.html'>The ArchiMob Corpus</a>
+
 
 
