@@ -6,9 +6,9 @@
 
 **Table of Contents**
 
-- [How to access](#how_to_access)
-- [ArchiMob Corpus](#archimob_corpus)
-- [Pre-processing Steps](#pre_processing_steps)
+- [How to access](#How_to_access)
+- [ArchiMob Corpus](#ArchiMob_Corpus)
+- [Pre-processing Steps](#Pre-processing_Steps)
 
 ## How to access
 <p> You need to contact <a href='https://github.com/AASHISHAG/deepspeech-swiss-german'>Dr. Samardžić</a> for the access. More details can be referred at <a href='https://www.spur.uzh.ch/en/departments/research/textgroup/ArchiMob.html'>The ArchiMob Corpus</a>
