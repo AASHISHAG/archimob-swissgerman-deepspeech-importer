@@ -24,6 +24,9 @@ This corpus is available under the Creative Commons Attribution-NonCommercial-Sh
 
 - If you have acquired the audio files as mentioned above, create a folder called 'audio' and place the files in this folder. 
 ```
+git clone https://github.com/AASHISHAG/archimob-swissgerman-deepspeech-importer.git
+cd archimob-swissgerman-deepspeech-importer
+mkdir audio <move audio to this folder>
 python3 Archimob_DeepSpeech_Importer.py
 ```
 
