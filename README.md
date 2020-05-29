@@ -24,10 +24,10 @@ This corpus is available under the Creative Commons Attribution-NonCommercial-Sh
 
 - If you have acquired the audio files as mentioned above, create a folder called 'audio' and place the files in this folder. 
 ```
-git clone https://github.com/AASHISHAG/archimob-swissgerman-deepspeech-importer.git
-cd archimob-swissgerman-deepspeech-importer
-mkdir audio <move audio to this folder>
-python3 Archimob_DeepSpeech_Importer.py
+$ git clone https://github.com/AASHISHAG/archimob-swissgerman-deepspeech-importer.git
+$ cd archimob-swissgerman-deepspeech-importer
+$ mkdir audio <move audio to this folder>
+$ python3 Archimob_DeepSpeech_Importer.py
 ```
 
 - The transcriptions, filenames and filesizes are merged and files below 10'000 Bytes and above 318'400 Bytes are dropped.
