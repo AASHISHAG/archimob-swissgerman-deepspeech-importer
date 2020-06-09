@@ -38,5 +38,8 @@ $ python3 Archimob_DeepSpeech_Importer.py
 Final_Training_CSV_for_Deepspeech
 ```
 
+ _**Why being SHY to STAR the repository, if you use the resources? :D**_
+ 
+
 
 
