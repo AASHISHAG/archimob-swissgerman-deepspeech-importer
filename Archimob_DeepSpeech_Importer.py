@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
+# check extract_ID in case of error
 '''
 The swissgerman-deepspeech-importer provides a complete solution from raw Archimob XML and audio files
 to fully cleaned, filtered, resized and splitted csv-files that can be used to train a DeepSpeech engine.
@@ -18,7 +19,7 @@ import datetime
 
 start = time.time()
 
-print('The ArchiMob importer in preparation for DeepSpeech training has started...')
+print('The ArchiMob.. importer in preparation for DeepSpeech training has started...')
 
 #Imports
 import xml.etree.ElementTree as ET
@@ -32,7 +33,7 @@ from joblib import Parallel, delayed  # conda install joblib
 from zipfile import ZipFile
 import requests
 from io import BytesIO
-#from urllib.request import urlopen
+from urllib.request import urlopen
 import shutil
 import string
 import sys
@@ -46,7 +47,7 @@ path_PP = './Pre_Processing_Files'
 
 if not os.path.exists(path_PP):
     try:
-        os.mkdir(path_PP)
+        os.makedirs(path_PP)
     except OSError:
         print('Creation of directory %s failed' %path_PP)
     else:
@@ -56,7 +57,7 @@ path_DS = './Final_Training_CSV_for_Deepspeech'
 
 if not os.path.exists(path_DS):
     try:
-        os.mkdir(path_DS)
+        os.makedirs(path_DS)
     except OSError:
         print('Creation of directory %s failed' %path_DS)
     else:
@@ -66,7 +67,7 @@ path_Extracts_CH = './Pre_Processing_Files/ArchiMob_Release1_160812/XML_Transcri
 
 if not os.path.exists(path_Extracts_CH):
     try:
-        os.mkdir(path_Extracts_CH)
+        os.makedirs(path_Extracts_CH)
     except OSError:
         print('Creation of directory %s failed' %path_Extracts_CH)
     else:
@@ -75,7 +76,7 @@ if not os.path.exists(path_Extracts_CH):
 path_Extracts_DE = './Pre_Processing_Files/ArchiMob_Release1_160812/XML_Transcripts_DE'
 if not os.path.exists(path_Extracts_DE):
     try:
-        os.mkdir(path_Extracts_DE)
+        os.makedirs(path_Extracts_DE)
     except OSError:
         print('Creation of directory %s failed' %path_Extracts_DE)
     else:
@@ -84,7 +85,7 @@ if not os.path.exists(path_Extracts_DE):
 path_CSV_merged = './Pre_Processing_Files/CSV_Merged'
 if not os.path.exists(path_CSV_merged):
     try:
-        os.mkdir(path_CSV_merged)
+        os.makedirs(path_CSV_merged)
     except OSError:
         print('Creation of directory %s failed' %path_CSV_merged)
     else:
@@ -93,7 +94,7 @@ if not os.path.exists(path_CSV_merged):
 path_DS_CSV_merged = './Pre_Processing_Files/DS_Archimob_CSV_Files'
 if not os.path.exists(path_DS_CSV_merged):
     try:
-        os.mkdir(path_DS_CSV_merged)
+        os.makedirs(path_DS_CSV_merged)
     except OSError:
         print('Creation of directory %s failed' %path_DS_CSV_merged)
     else:
@@ -102,7 +103,7 @@ if not os.path.exists(path_DS_CSV_merged):
 path_DS_audio = './Pre_Processing_Files/DS_audio'
 if not os.path.exists(path_DS_audio):
     try:
-        os.mkdir(path_DS_audio)
+        os.makedirs(path_DS_audio)
     except OSError:
         print('Creation of directory %s failed' %path_DS_audio)
     else:
@@ -122,7 +123,7 @@ def merge_audiofiles_from_folders ():
     path_audio = './Pre_Processing_Files/audio_merged'
     if not os.path.exists(path_audio):
         try:
-            os.mkdir(path_audio)
+            os.makedirs(path_audio)
         except OSError:
             print('Creation of directory %s failed' %path_audio)
         else:
@@ -259,7 +260,7 @@ def merge_AM_transcripts (language):
     df_ds_csv = pd.read_csv('./Pre_Processing_Files/DS_audio/DS_Data_Archimob_Filepath_Filesize.csv')
     df_ds_csv['Filename'] = df_ds_csv['wav_filename']
 
-    #Extract ID from filepath for merging
+    #Extract ID from filepath for merging # Change this logic in case of error
     def extract_ID (x):
         y = x.split('l/')[1]
         z = y[:-4]
@@ -271,7 +272,7 @@ def merge_AM_transcripts (language):
 
     #replace deviating characters from Transcript file,
     df_archi_trans = pd.DataFrame()
-    df_archi_trans = pd.read_csv('./Pre_Processing_Files/CSV_Merged/ArchiMob_Transcript_CLeaned_Merged_' + language +'.csv')
+    df_archi_trans = pd.read_csv('./Pre_Processing_Files/CSV_Merged/ArchiMob_Transcript_Cleaned_Merged_' + language +'.csv')
     df_archi_trans['Filename'] = df_archi_trans['Filename'].str.replace('-', '_')
 
     #Merge on the column Filename
@@ -341,7 +342,7 @@ def split_dataset(language):
 #############################CALL THE FUNCTIONS#################################
 
 #Downloading XML Files
-#download_and_extract_zip(url)
+download_and_extract_zip(url)
 
 if os.path.isdir('./audio') is True:
     merge_audiofiles_from_folders()
@@ -388,8 +389,8 @@ if os.path.isdir('./Pre_Processing_Files/audio_processed_final') is True:
     remove_not_transcribed_DE_references()
 
     #Perform Data Split
-    split_dataset('ch')
-    split_dataset('de')
+    split_dataset('CH')
+    split_dataset('DE')
 else:
     print('WARNING: No folder "audio_processed_final" with ArchiMob audio files detected, therefore no Transcript-Merge with Filepath&Filesize')
     print('See Readme.md for information on ArchiMob audio files')
